@@ -120,7 +120,7 @@ class HomeViewController: UIViewController {
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         
-//        button.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonStartTapped), for: .touchUpInside)
         return button
     }()
     
@@ -132,6 +132,12 @@ class HomeViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+    
+    // MARK: - Action
+    @IBAction func buttonStartTapped() -> Void {
+        let searchFlights = SearchFlightsViewController()
+        self.navigationController?.pushViewController(searchFlights, animated: true)
+    }
 
     // MARK: - Lifecycle
     override func viewDidLoad() {

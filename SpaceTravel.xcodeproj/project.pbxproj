@@ -17,6 +17,8 @@
 		E00371632829555F00BF8802 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00371622829555F00BF8802 /* NavigationController.swift */; };
 		E0037168282983B800BF8802 /* ChooseSpacecraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0037167282983B700BF8802 /* ChooseSpacecraft.swift */; };
 		E0258787282C17FC00321252 /* UIBezierPath+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0258786282C17FC00321252 /* UIBezierPath+extension.swift */; };
+		E025878B282C20C500321252 /* SearchFlightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E025878A282C20C500321252 /* SearchFlightsViewController.swift */; };
+		E025878E282C23F900321252 /* PullDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = E025878D282C23F900321252 /* PullDown.swift */; };
 		E060E308282AC55B00B14066 /* Spacecraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = E060E307282AC55B00B14066 /* Spacecraft.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		E00371622829555F00BF8802 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		E0037167282983B700BF8802 /* ChooseSpacecraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSpacecraft.swift; sourceTree = "<group>"; };
 		E0258786282C17FC00321252 /* UIBezierPath+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+extension.swift"; sourceTree = "<group>"; };
+		E025878A282C20C500321252 /* SearchFlightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlightsViewController.swift; sourceTree = "<group>"; };
+		E025878D282C23F900321252 /* PullDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullDown.swift; sourceTree = "<group>"; };
 		E060E307282AC55B00B14066 /* Spacecraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacecraft.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +86,7 @@
 		E003715B2829548B00BF8802 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E0258788282C209800321252 /* SearchFlights */,
 				E00371612829553900BF8802 /* Navigation */,
 				E003715C282954A900BF8802 /* Home */,
 			);
@@ -118,8 +123,25 @@
 				E0037167282983B700BF8802 /* ChooseSpacecraft.swift */,
 				E060E307282AC55B00B14066 /* Spacecraft.swift */,
 				E0258786282C17FC00321252 /* UIBezierPath+extension.swift */,
+				E025878D282C23F900321252 /* PullDown.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		E0258788282C209800321252 /* SearchFlights */ = {
+			isa = PBXGroup;
+			children = (
+				E0258789282C20AF00321252 /* View */,
+			);
+			path = SearchFlights;
+			sourceTree = "<group>";
+		};
+		E0258789282C20AF00321252 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E025878A282C20C500321252 /* SearchFlightsViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,12 +216,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E003714C2829540A00BF8802 /* ViewController.swift in Sources */,
+				E025878E282C23F900321252 /* PullDown.swift in Sources */,
 				E0258787282C17FC00321252 /* UIBezierPath+extension.swift in Sources */,
 				E00371482829540A00BF8802 /* AppDelegate.swift in Sources */,
 				E060E308282AC55B00B14066 /* Spacecraft.swift in Sources */,
 				E00371632829555F00BF8802 /* NavigationController.swift in Sources */,
 				E003714A2829540A00BF8802 /* SceneDelegate.swift in Sources */,
 				E0037168282983B800BF8802 /* ChooseSpacecraft.swift in Sources */,
+				E025878B282C20C500321252 /* SearchFlightsViewController.swift in Sources */,
 				E0037160282954C900BF8802 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
