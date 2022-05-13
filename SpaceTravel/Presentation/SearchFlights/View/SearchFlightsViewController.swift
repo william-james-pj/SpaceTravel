@@ -106,9 +106,15 @@ class SearchFlightsViewController: UIViewController {
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         
-//        button.addTarget(self, action: #selector(buttonStartTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonSearchTapped), for: .touchUpInside)
         return button
     }()
+    
+    // MARK: - Action
+    @IBAction func buttonSearchTapped() -> Void {
+        let result = ResultsViewController()
+        self.navigationController?.pushViewController(result, animated: true)
+    }
 
     // MARK: - Lifecycle
     override func viewDidLoad() {

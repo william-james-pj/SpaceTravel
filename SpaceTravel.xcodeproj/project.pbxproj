@@ -20,6 +20,8 @@
 		E025878B282C20C500321252 /* SearchFlightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E025878A282C20C500321252 /* SearchFlightsViewController.swift */; };
 		E025878E282C23F900321252 /* PullDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = E025878D282C23F900321252 /* PullDown.swift */; };
 		E060E308282AC55B00B14066 /* Spacecraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = E060E307282AC55B00B14066 /* Spacecraft.swift */; };
+		E0C908C8282D7A6E0080F5CF /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C908C7282D7A6E0080F5CF /* ResultsViewController.swift */; };
+		E0C908CB282D82540080F5CF /* TicketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C908CA282D82540080F5CF /* TicketCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		E025878A282C20C500321252 /* SearchFlightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlightsViewController.swift; sourceTree = "<group>"; };
 		E025878D282C23F900321252 /* PullDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullDown.swift; sourceTree = "<group>"; };
 		E060E307282AC55B00B14066 /* Spacecraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacecraft.swift; sourceTree = "<group>"; };
+		E0C908C7282D7A6E0080F5CF /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		E0C908CA282D82540080F5CF /* TicketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		E003715B2829548B00BF8802 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E0C908C5282D7A280080F5CF /* Results */,
 				E0258788282C209800321252 /* SearchFlights */,
 				E00371612829553900BF8802 /* Navigation */,
 				E003715C282954A900BF8802 /* Home */,
@@ -142,6 +147,31 @@
 				E025878A282C20C500321252 /* SearchFlightsViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E0C908C5282D7A280080F5CF /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				E0C908C6282D7A3D0080F5CF /* View */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		E0C908C6282D7A3D0080F5CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0C908C9282D82280080F5CF /* Cell */,
+				E0C908C7282D7A6E0080F5CF /* ResultsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0C908C9282D82280080F5CF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E0C908CA282D82540080F5CF /* TicketCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C908C8282D7A6E0080F5CF /* ResultsViewController.swift in Sources */,
 				E003714C2829540A00BF8802 /* ViewController.swift in Sources */,
 				E025878E282C23F900321252 /* PullDown.swift in Sources */,
 				E0258787282C17FC00321252 /* UIBezierPath+extension.swift in Sources */,
@@ -222,6 +253,7 @@
 				E060E308282AC55B00B14066 /* Spacecraft.swift in Sources */,
 				E00371632829555F00BF8802 /* NavigationController.swift in Sources */,
 				E003714A2829540A00BF8802 /* SceneDelegate.swift in Sources */,
+				E0C908CB282D82540080F5CF /* TicketCollectionViewCell.swift in Sources */,
 				E0037168282983B800BF8802 /* ChooseSpacecraft.swift in Sources */,
 				E025878B282C20C500321252 /* SearchFlightsViewController.swift in Sources */,
 				E0037160282954C900BF8802 /* HomeViewController.swift in Sources */,
