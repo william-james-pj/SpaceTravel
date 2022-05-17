@@ -20,6 +20,15 @@
 		E025878B282C20C500321252 /* SearchFlightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E025878A282C20C500321252 /* SearchFlightsViewController.swift */; };
 		E025878E282C23F900321252 /* PullDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = E025878D282C23F900321252 /* PullDown.swift */; };
 		E060E308282AC55B00B14066 /* Spacecraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = E060E307282AC55B00B14066 /* Spacecraft.swift */; };
+		E06A8EB92832765C002A481B /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06A8EB82832765C002A481B /* Planet.swift */; };
+		E06A8EBD2832797B002A481B /* SearchFlightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06A8EBC2832797B002A481B /* SearchFlightsViewModel.swift */; };
+		E06A8EC028327FEB002A481B /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = E06A8EBF28327FEB002A481B /* RxRelay */; };
+		E06A8EC228327FEB002A481B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E06A8EC128327FEB002A481B /* RxSwift */; };
+		E06A8EC428328142002A481B /* FlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06A8EC328328142002A481B /* FlightModel.swift */; };
+		E06A8EC72832880D002A481B /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06A8EC62832880D002A481B /* ResultsViewModel.swift */; };
+		E06A8EC928328B94002A481B /* TicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06A8EC828328B94002A481B /* TicketModel.swift */; };
+		E06A8ECC28329A2E002A481B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06A8ECB28329A2E002A481B /* HomeViewModel.swift */; };
+		E06A8ECE2832B0B2002A481B /* SpacecraftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06A8ECD2832B0B2002A481B /* SpacecraftModel.swift */; };
 		E0C908C8282D7A6E0080F5CF /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C908C7282D7A6E0080F5CF /* ResultsViewController.swift */; };
 		E0C908CB282D82540080F5CF /* TicketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C908CA282D82540080F5CF /* TicketCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +49,13 @@
 		E025878A282C20C500321252 /* SearchFlightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlightsViewController.swift; sourceTree = "<group>"; };
 		E025878D282C23F900321252 /* PullDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullDown.swift; sourceTree = "<group>"; };
 		E060E307282AC55B00B14066 /* Spacecraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacecraft.swift; sourceTree = "<group>"; };
+		E06A8EB82832765C002A481B /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		E06A8EBC2832797B002A481B /* SearchFlightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlightsViewModel.swift; sourceTree = "<group>"; };
+		E06A8EC328328142002A481B /* FlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModel.swift; sourceTree = "<group>"; };
+		E06A8EC62832880D002A481B /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
+		E06A8EC828328B94002A481B /* TicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketModel.swift; sourceTree = "<group>"; };
+		E06A8ECB28329A2E002A481B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E06A8ECD2832B0B2002A481B /* SpacecraftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacecraftModel.swift; sourceTree = "<group>"; };
 		E0C908C7282D7A6E0080F5CF /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		E0C908CA282D82540080F5CF /* TicketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E06A8EC228327FEB002A481B /* RxSwift in Frameworks */,
+				E06A8EC028327FEB002A481B /* RxRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +92,7 @@
 		E00371462829540A00BF8802 /* SpaceTravel */ = {
 			isa = PBXGroup;
 			children = (
+				E06A8EB728327645002A481B /* Model */,
 				E0037164282960CA00BF8802 /* Common */,
 				E003715B2829548B00BF8802 /* Presentation */,
 				E00371472829540A00BF8802 /* AppDelegate.swift */,
@@ -101,6 +120,7 @@
 		E003715C282954A900BF8802 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E06A8ECA28329A1D002A481B /* ViewModel */,
 				E003715D282954AF00BF8802 /* View */,
 			);
 			path = Home;
@@ -136,6 +156,7 @@
 		E0258788282C209800321252 /* SearchFlights */ = {
 			isa = PBXGroup;
 			children = (
+				E06A8EBA28327896002A481B /* ViewModel */,
 				E0258789282C20AF00321252 /* View */,
 			);
 			path = SearchFlights;
@@ -149,9 +170,45 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E06A8EB728327645002A481B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E06A8EB82832765C002A481B /* Planet.swift */,
+				E06A8EC328328142002A481B /* FlightModel.swift */,
+				E06A8EC828328B94002A481B /* TicketModel.swift */,
+				E06A8ECD2832B0B2002A481B /* SpacecraftModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E06A8EBA28327896002A481B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E06A8EBC2832797B002A481B /* SearchFlightsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E06A8EC5283287F4002A481B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E06A8EC62832880D002A481B /* ResultsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E06A8ECA28329A1D002A481B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E06A8ECB28329A2E002A481B /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E0C908C5282D7A280080F5CF /* Results */ = {
 			isa = PBXGroup;
 			children = (
+				E06A8EC5283287F4002A481B /* ViewModel */,
 				E0C908C6282D7A3D0080F5CF /* View */,
 			);
 			path = Results;
@@ -190,6 +247,10 @@
 			dependencies = (
 			);
 			name = SpaceTravel;
+			packageProductDependencies = (
+				E06A8EBF28327FEB002A481B /* RxRelay */,
+				E06A8EC128327FEB002A481B /* RxSwift */,
+			);
 			productName = SpaceTravel;
 			productReference = E00371442829540A00BF8802 /* SpaceTravel.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +279,9 @@
 				Base,
 			);
 			mainGroup = E003713B2829540A00BF8802;
+			packageReferences = (
+				E06A8EBE28327FEB002A481B /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = E00371452829540A00BF8802 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -245,18 +309,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E06A8EC928328B94002A481B /* TicketModel.swift in Sources */,
+				E06A8ECC28329A2E002A481B /* HomeViewModel.swift in Sources */,
+				E06A8EBD2832797B002A481B /* SearchFlightsViewModel.swift in Sources */,
 				E0C908C8282D7A6E0080F5CF /* ResultsViewController.swift in Sources */,
 				E003714C2829540A00BF8802 /* ViewController.swift in Sources */,
+				E06A8EC428328142002A481B /* FlightModel.swift in Sources */,
 				E025878E282C23F900321252 /* PullDown.swift in Sources */,
 				E0258787282C17FC00321252 /* UIBezierPath+extension.swift in Sources */,
 				E00371482829540A00BF8802 /* AppDelegate.swift in Sources */,
+				E06A8EB92832765C002A481B /* Planet.swift in Sources */,
 				E060E308282AC55B00B14066 /* Spacecraft.swift in Sources */,
 				E00371632829555F00BF8802 /* NavigationController.swift in Sources */,
+				E06A8ECE2832B0B2002A481B /* SpacecraftModel.swift in Sources */,
 				E003714A2829540A00BF8802 /* SceneDelegate.swift in Sources */,
 				E0C908CB282D82540080F5CF /* TicketCollectionViewCell.swift in Sources */,
 				E0037168282983B800BF8802 /* ChooseSpacecraft.swift in Sources */,
 				E025878B282C20C500321252 /* SearchFlightsViewController.swift in Sources */,
 				E0037160282954C900BF8802 /* HomeViewController.swift in Sources */,
+				E06A8EC72832880D002A481B /* ResultsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +543,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E06A8EBE28327FEB002A481B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E06A8EBF28327FEB002A481B /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E06A8EBE28327FEB002A481B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		E06A8EC128327FEB002A481B /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E06A8EBE28327FEB002A481B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E003713C2829540A00BF8802 /* Project object */;
 }

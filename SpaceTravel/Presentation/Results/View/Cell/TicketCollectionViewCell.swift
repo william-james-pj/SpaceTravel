@@ -26,7 +26,6 @@ class TicketCollectionViewCell: UICollectionViewCell {
     
     fileprivate let labelOrigin: UILabel = {
         let label = UILabel()
-        label.text = "Earth"
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.textColor = UIColor(named: "Text")
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +46,6 @@ class TicketCollectionViewCell: UICollectionViewCell {
     
     fileprivate let labelDestination: UILabel = {
         let label = UILabel()
-        label.text = "Mars"
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.textColor = UIColor(named: "Text")
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +82,6 @@ class TicketCollectionViewCell: UICollectionViewCell {
     
     fileprivate let labelMonth: UILabel = {
         let label = UILabel()
-        label.text = "9 Month"
         label.font = .systemFont(ofSize: 12, weight: .bold)
         label.textColor = UIColor(named: "Text")
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -102,7 +99,6 @@ class TicketCollectionViewCell: UICollectionViewCell {
     
     fileprivate let labelDateLeave: UILabel = {
         let label = UILabel()
-        label.text = "2021/05/25"
         label.font = .systemFont(ofSize: 10, weight: .bold)
         label.textColor = UIColor(named: "Disabled")
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -129,7 +125,6 @@ class TicketCollectionViewCell: UICollectionViewCell {
     
     fileprivate let labelDateArrive: UILabel = {
         let label = UILabel()
-        label.text = "2022/01/15"
         label.font = .systemFont(ofSize: 10, weight: .bold)
         label.textColor = UIColor(named: "Disabled")
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -184,6 +179,14 @@ class TicketCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Methods
+    func settingCell(ticket: TicketModel) {
+        self.labelDestination.text = ticket.destination
+        self.labelOrigin.text = ticket.origin
+        self.labelMonth.text = "\(ticket.monthsTravel) Month"
+        self.labelDateLeave.text = ticket.dateLeave
+        self.labelDateArrive.text = ticket.dateArrive
+    }
+    
     fileprivate func buildHierarchy() {
         self.addSubview(stackBase)
         

@@ -6,10 +6,18 @@
 //
 
 import UIKit
+import RxSwift
 
 class ResultsViewController: UIViewController {
     // MARK: - Constrants
     fileprivate let resuseIdentifierTicket = "TicketCollectionViewCell"
+    let disposeBag = DisposeBag()
+    
+    // MARK: - Variables
+    var viewModel: ResultsViewModel = {
+        return ResultsViewModel()
+    }()
+    fileprivate var allFlight: [TicketModel] = []
     
     // MARK: - Components
     fileprivate let stackBase: UIStackView = {
@@ -51,6 +59,11 @@ class ResultsViewController: UIViewController {
     fileprivate func setupVC() {
         view.backgroundColor = UIColor(named: "Backgroud")
         
+        self.viewModel.allFlightBehavior.subscribe(onNext: { allFlights in
+            self.allFlight = allFlights
+            self.collectionViewTicket.reloadData()
+        }).disposed(by: disposeBag)
+        
         buildHierarchy()
         buildConstraints()
         setupCollection()
@@ -89,11 +102,12 @@ extension ResultsViewController: UICollectionViewDelegate {
 // MARK: - extension CollectionViewDataSource
 extension ResultsViewController: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return self.allFlight.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: resuseIdentifierTicket, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: resuseIdentifierTicket, for: indexPath) as! TicketCollectionViewCell
+        cell.settingCell(ticket: self.allFlight[indexPath.row])
         return cell
     }
 }

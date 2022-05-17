@@ -18,7 +18,7 @@ class Spacecraft: UIView {
     fileprivate let stackBase: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 16
+        stack.spacing = 8
         
         stack.distribution = .fill
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +47,16 @@ class Spacecraft: UIView {
     fileprivate let labelName: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .bold)
+        label.numberOfLines = 2
+        label.textColor = UIColor(named: "White")
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    fileprivate let labelSpeed: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 10, weight: .bold)
         label.numberOfLines = 2
         label.textColor = UIColor(named: "White")
         label.textAlignment = .center
@@ -91,8 +101,9 @@ class Spacecraft: UIView {
         self.backgroundColor = UIColor(named: "Card")
     }
     
-    func configCell(name: String, type: SpacecraftType) {
+    func configCell(name: String, speed: Int, type: SpacecraftType) {
         self.labelName.text = name
+        self.labelSpeed.text = "\(speed) km/h"
         
         switch type {
         case .millennium:
@@ -108,6 +119,7 @@ class Spacecraft: UIView {
         self.addSubview(stackBase)
         stackBase.addArrangedSubview(viewImageAux)
         stackBase.addArrangedSubview(labelName)
+        stackBase.addArrangedSubview(labelSpeed)
         stackBase.addArrangedSubview(viewStackAux)
         
         viewImageAux.addSubview(imageViewSpacecraft)

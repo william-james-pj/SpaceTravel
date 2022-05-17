@@ -6,8 +6,17 @@
 //
 
 import UIKit
+import RxSwift
 
 class ChooseSpacecraft: UIView {
+    // MARK: - Constants
+    fileprivate let indexSelectedSubject = PublishSubject<Int>()
+    
+    // MARK: - Variables
+    var indexSelectedSubjectObservable: Observable<Int> {
+        return indexSelectedSubject.asObserver()
+    }
+    
     // MARK: - Constants
     fileprivate let selectorTextColor = UIColor(named: "Write")
     fileprivate let disableTextColor = UIColor(named: "Write")
@@ -15,7 +24,7 @@ class ChooseSpacecraft: UIView {
     fileprivate let disabeldViewColor = UIColor(named: "Card")
     
     // MARK: - Variables
-    fileprivate var buttonTitles: [String] = []
+    fileprivate var buttonElements: [SpacecraftModel] = []
     fileprivate var elementViews: [Spacecraft] = []
     
     // MARK: - Setup
@@ -26,17 +35,18 @@ class ChooseSpacecraft: UIView {
     
     // MARK: - Actions
     @IBAction func buttonTapped(sender: UIButton) {
-        for (_, elementView) in elementViews.enumerated() {
+        for (elementIndex, elementView) in elementViews.enumerated() {
             elementView.deselectView()
             if elementView.buttonSelect == sender {
                 elementView.selectView()
+                self.indexSelectedSubject.onNext(elementIndex)
             }
         }
     }
     
     // MARK: - Methods
-    func setButtonTitles(buttonTitles: [String]) {
-        self.buttonTitles = buttonTitles
+    func setButtonTitles(buttonElements: [SpacecraftModel]) {
+        self.buttonElements = buttonElements
         self.setupVC()
     }
     
@@ -44,9 +54,9 @@ class ChooseSpacecraft: UIView {
         self.elementViews = [Spacecraft]()
         self.elementViews.removeAll()
         self.subviews.forEach({$0.removeFromSuperview()})
-        for (titleIndex, title) in buttonTitles.enumerated() {
+        for (elementIndex, buttonElement) in buttonElements.enumerated() {
             let view = Spacecraft()
-            view.configCell(name: title, type: SpacecraftType.allCases[titleIndex])
+            view.configCell(name: buttonElement.name, speed: buttonElement.speed, type: SpacecraftType.allCases[elementIndex])
             view.buttonSelect.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             elementViews.append(view)
         }

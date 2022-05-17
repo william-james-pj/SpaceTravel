@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 enum PullDownIcon: String {
     case location = "location"
@@ -15,6 +16,14 @@ enum PullDownIcon: String {
 }
 
 class PullDown: UIView {
+    // MARK: - Constants
+    fileprivate let indexSelectedSubject = PublishSubject<Int>()
+    
+    // MARK: - Variables
+    var indexSelectedSubjectObservable: Observable<Int> {
+        return indexSelectedSubject.asObserver()
+    }
+    
     // MARK: - Components
     fileprivate let stackBase: UIStackView = {
         let stack = UIStackView()
@@ -98,9 +107,11 @@ class PullDown: UIView {
     
     fileprivate func setupAction(to actionTitles: [String]) {
         var allAction: [UIAction] = []
-        for (_, title) in actionTitles.enumerated() {
+        for (index, title) in actionTitles.enumerated() {
             let newAction = UIAction(title: title) { _ in
-                self.setButtonTitle(to: title)}
+                self.setButtonTitle(to: title)
+                self.indexSelectedSubject.onNext(index)
+            }
             allAction.append(newAction)
         }
         pullDownButton.menu = UIMenu(title: "", children: allAction)

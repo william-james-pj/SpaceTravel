@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import RxSwift
 
 class HomeViewController: UIViewController {
+    // MARK: - Constrants
+    let disposeBag = DisposeBag()
+    
+    // MARK: - Variables
+    var viewModel: HomeViewModel = {
+        return HomeViewModel()
+    }()
     
     // MARK: - Components
     fileprivate let stackBase: UIStackView = {
@@ -93,7 +101,6 @@ class HomeViewController: UIViewController {
     
     fileprivate let chooseSpacecraft: ChooseSpacecraft = {
         let view = ChooseSpacecraft()
-        view.setButtonTitles(buttonTitles: ["Millennium Falcon","X-wing","USS Enterprise"])
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -136,6 +143,7 @@ class HomeViewController: UIViewController {
     // MARK: - Action
     @IBAction func buttonStartTapped() -> Void {
         let searchFlights = SearchFlightsViewController()
+        searchFlights.viewModel.setSpacecraft(to: self.viewModel.spacecraftSelected)
         self.navigationController?.pushViewController(searchFlights, animated: true)
     }
 
@@ -161,6 +169,11 @@ class HomeViewController: UIViewController {
         
         buildHierarchy()
         buildConstraints()
+        
+        self.chooseSpacecraft.setButtonTitles(buttonElements: self.viewModel.spacecraft)
+        self.chooseSpacecraft.indexSelectedSubjectObservable.subscribe(onNext: { selectIndex in
+            self.viewModel.setSpacecraftSelected(selectIndex: selectIndex)
+        }).disposed(by: disposeBag)
     }
     
     // MARK: - Methods

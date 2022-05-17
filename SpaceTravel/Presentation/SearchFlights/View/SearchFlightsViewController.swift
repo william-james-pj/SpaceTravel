@@ -6,8 +6,17 @@
 //
 
 import UIKit
+import RxSwift
 
 class SearchFlightsViewController: UIViewController {
+    // MARK: - Constrants
+    let disposeBag = DisposeBag()
+    
+    // MARK: - Variables
+    var viewModel: SearchFlightsViewModel = {
+        return SearchFlightsViewModel()
+    }()
+    
     // MARK: - Components
     fileprivate let stackBase: UIStackView = {
         let stack = UIStackView()
@@ -35,13 +44,11 @@ class SearchFlightsViewController: UIViewController {
     
     fileprivate let buttonPullDownOrigin: PullDown = {
         let button = PullDown()
-        button.setupV(actions: ["Earth", "Mars"], labelValue: "Origin", icon: .location)
         return button
     }()
     
     fileprivate let buttonPullDownDestination: PullDown = {
         let button = PullDown()
-        button.setupV(actions: ["Earth", "Mars"], labelValue: "Destination", icon: .location)
         return button
     }()
     
@@ -113,6 +120,7 @@ class SearchFlightsViewController: UIViewController {
     // MARK: - Action
     @IBAction func buttonSearchTapped() -> Void {
         let result = ResultsViewController()
+        result.viewModel.generateTicket(flight: self.viewModel.flightBehavior.value)
         self.navigationController?.pushViewController(result, animated: true)
     }
 
@@ -128,6 +136,19 @@ class SearchFlightsViewController: UIViewController {
         
         buildHierarchy()
         buildConstraints()
+        setupPullDownPlanet()
+    }
+    
+    fileprivate func setupPullDownPlanet() {
+        self.buttonPullDownDestination.setupV(actions: self.viewModel.getPlanetName(), labelValue: "Destination", icon: .location)
+        self.buttonPullDownDestination.indexSelectedSubjectObservable.subscribe(onNext: { planetIndex in
+            self.viewModel.setDestination(to: planetIndex)
+        }).disposed(by: disposeBag)
+        
+        self.buttonPullDownOrigin.setupV(actions: self.viewModel.getPlanetName(), labelValue: "Origin", icon: .location)
+        self.buttonPullDownOrigin.indexSelectedSubjectObservable.subscribe(onNext: { planetIndex in
+                self.viewModel.setOrigin(to: planetIndex)
+            }).disposed(by: disposeBag)
     }
     
     // MARK: - Methods
@@ -145,9 +166,9 @@ class SearchFlightsViewController: UIViewController {
         
         stackForm.addArrangedSubview(buttonPullDownLaunch)
         
-        stackForm.addArrangedSubview(stackRowDeparture)
-        stackRowDeparture.addArrangedSubview(buttonPullDownClass)
-        stackRowDeparture.addArrangedSubview(buttonPullDownDeparture)
+//        stackForm.addArrangedSubview(stackRowDeparture)
+//        stackRowDeparture.addArrangedSubview(buttonPullDownClass)
+//        stackRowDeparture.addArrangedSubview(buttonPullDownDeparture)
         
         stackBase.addArrangedSubview(viewButtonAux)
         viewButtonAux.addSubview(buttonSearch)
