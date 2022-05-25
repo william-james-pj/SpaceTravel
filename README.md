@@ -4,7 +4,7 @@
   <h3 align="center">Space Travel</h3>
 
   <p align="center">
-    App para organização de tarefas
+    App para viagem espaciais
   </p>
 </p>
 
